@@ -6,7 +6,6 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build-and-push-image:
@@ -31,5 +30,6 @@ jobs:
         with:
           context: .
           push: true
-          # This creates: ghcr.io/laughingmanatghvcs/reconya:latest
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          # FIXED: I manually typed your username in lowercase below.
+          # Docker will not accept "AT", it must be "at".
+          tags: ghcr.io/laughingmanatghvcs/reconya:latest
