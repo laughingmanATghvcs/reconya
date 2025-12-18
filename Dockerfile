@@ -20,5 +20,5 @@ RUN npm install --legacy-peer-deps --no-audit --ignore-scripts
 # 4. Expose Port
 EXPOSE 3000
 
-# 5. Start
-CMD ["npm", "run", "start"]
+# Start the daemon, wait 5 seconds for logs to appear, then follow the logs forever (keeping container alive)
+CMD ["sh", "-c", "npm run start && sleep 5 && tail -f /app/logs/reconya.log"]
